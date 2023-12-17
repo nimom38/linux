@@ -229,31 +229,31 @@ detect_vmx_features(void)
 	rdmsr(IA32_VMX_ENTRY_CTLS, lo, hi);
 	pr_info("VM-Entry Controls MSR: 0x%llx\n",
 		(uint64_t)(lo | (uint64_t)hi << 32));
-	report_capability(entry_ctls, 5, lo, hi);
+	report_capability(entry_ctls, 14, lo, hi);
 
 	/* VM-Exit Controls */
 	rdmsr(IA32_VMX_EXIT_CTLS, lo, hi);
 	pr_info("VM-Exit Controls MSR: 0x%llx\n",
 		(uint64_t)(lo | (uint64_t)hi << 32));
-	report_capability(exit_ctls, 5, lo, hi);
+	report_capability(exit_ctls, 18, lo, hi);
 
 	/* VM-Procbased Controls */
 	rdmsr(IA32_VMX_PROCBASED_CTLS, lo, hi);
 	pr_info("VM-Procbased Controls MSR: 0x%llx\n",
 		(uint64_t)(lo | (uint64_t)hi << 32));
-	report_capability(proc_based_ctls, 5, lo, hi);
+	report_capability(proc_based_ctls, 22, lo, hi);
 
 	/* VM-SecondaryProcbased Controls */
 	rdmsr(IA32_VMX_PROCBASED_CTLS2, lo, hi);
 	pr_info("VM-SecondaryProcbased Controls MSR: 0x%llx\n",
 		(uint64_t)(lo | (uint64_t)hi << 32));
-	report_capability(procbased_ctls2, 5, lo, hi);
+	report_capability(procbased_ctls2, 31, lo, hi);
 
 	/* VM-Tertiary-Procbased Controls */
 	rdmsr(IA32_VMX_PROCBASED_CTLS3, lo, hi);
 	pr_info("VM-Tertiary-Procbased Controls MSR: 0x%llx\n",
 		(uint64_t)(lo | (uint64_t)hi << 32));
-	report_capability(procbased_ctls3, 5, lo, hi);
+	report_capability(procbased_ctls3, 6, lo, hi);
 }
 
 /*
@@ -288,4 +288,4 @@ cleanup_module(void)
 	printk(KERN_INFO "CMPE 283 Assignment 1 Module Exits\n");
 }
 
-MODULE_LICENSE("GPL v2");
+MODULE_LICENSE("GPL");
